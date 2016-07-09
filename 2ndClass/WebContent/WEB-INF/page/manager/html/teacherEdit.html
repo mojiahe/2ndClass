@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" isELIgnored="false"%>
+    
+	<div id="body">
+		<div class="container">
+			<div class="row">
+				<%@include file="accordion.html" %>
+
+				<div class="col-md-10 col-sm-8 col-xs-6 content">
+					<div class="content-header">
+						<div class="left">
+							<ol class="breadcrumb">
+							  <li><a href="${pageContext.request.contextPath }/managerAction!index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+							  <li ><a href="#collapseFive" data-toggle="collapse" class="myCollapse" id="caret5">歌曲管理</a></li>
+							  <li class="active">教师信息修改</li>
+							</ol>
+						</div>
+						<div class="right">
+							<span>${manager.nickname},欢迎你！</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="content-body">
+						<div class="sectionOne songEdit ">
+							<br/><br/>
+							<p class="tag visible-md-block visible-lg-block">老师信息修改</p>
+							
+						 	<p style=" font-weight: bold;">尊敬的管理员，请修改老师信息：</p>
+						 	<form class="form-horizontal" method="post" action="${pageContext.request.contextPath }/updateTeacher}">
+						 		<input type="text" name="teacher.tea_id" value="${selectteacher.tea_id}" style="display:none;"/>
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">老师名字：</label>
+								    <div class="col-sm-3">
+								      <input type="text" name="teacher.tea_name" class="form-control" placeholder="请输入老师名字" value="${selectteacher.tea_name}" required>
+								    </div>
+								</div>
+				
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">老师职业：</label>
+								    <div class="col-sm-3">
+								      <input type="text" name="teacher.job" class="form-control" placeholder="请输入老师职业" value="${selectteacher.job}" required>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">老师经历：</label>
+								    <div class="col-sm-3">
+								      <input type="text" name="teacher.exp" class="form-control" placeholder="请输入老师经历" value="${selectteacher.exp}" required>
+								    </div>
+								</div>
+
+								<p style="text-align: center">
+									<input type="submit" class="btn btn-info btn-sm" value="修改信息"></input>
+									<input type="reset" class="btn btn-warning btn-sm" value="重设信息"></input>
+								</p>
+							</form>
+
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

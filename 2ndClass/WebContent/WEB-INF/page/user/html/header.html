@@ -1,0 +1,208 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8" isELIgnored="false"%>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+			<a class="navbar-brand my-brand" href="index.html"><img
+				src="images/logo.png"></a>
+		</div>
+
+		<!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="${pageContext.request.contextPath}/getCourseAndInfoByType">课程<span class="sr-only">(current)</span></a></li>
+				<li><a href="share_video.html">分享</a></li>
+				<li><a href="community_question.html">社区</a></li>
+				<li class="dropdown"><a href="javascript:;"
+					class="dropdown-toggle" data-toggle="dropdown" role="button"
+					aria-haspopup="true" aria-expanded="false">更多 <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="about.html">关于我们</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="person.html">人才招募</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="teacher.html">讲师招募</a></li>
+					</ul></li>
+			</ul>
+			<!-- 搜索框 -->
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="您想搜的课程名">
+				</div>
+				<button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					搜索
+				</button>
+			</form>
+
+			<ul class="nav navbar-nav navbar-right">
+				<c:if test="${user == null}">
+					<!-- 登录按钮 -->
+					<li><p class="navbar-text my-text">
+							<!-- data-target触发模态弹出窗元素 -->
+							<button class="btn btn-my uk-animation-hover" data-toggle="modal"
+								data-target="#login" type="button">
+								<span class="glyphicon glyphicon-user uk-animation-scale-down"
+									aria-hidden="true"></span> 登录
+							</button>
+
+							<!-- 模态弹出窗内容 -->
+						<div class="modal fade" id="login" tabindex="-1" role="dialog"
+							aria-labelledby="mySmallModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-sm">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+										</button>
+										<h5 class="modal-title">登录</h5>
+									</div>
+									<form id="form_login" class="form-horizontal">
+										<div class="modal-body">
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label for="inputEmail3">UserName:</label> <input
+														type="text" class="form-control" name="user.username"
+														required placeholder="请输入用户名" >
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label for="inputPassword3">Password:</label> <input
+														type="password" class="form-control" name="user.password"
+														required placeholder="请输入密码" >
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-8">
+													<div class="checkbox">
+														<label> <input id="isRemember" type="checkbox">记住我一周
+															<input type="hidden" id="rememberOrNot"
+															name="user.isRemember"  >
+														</label>
+													</div>
+												</div>
+												<label class="col-sm-4 control-label"><a
+													href="findPwd.jsp">忘记密码?</a></label>
+											</div>
+
+
+											<div id="div_login_msg" class="form-group"
+												style="display: none">
+												<label class="col-sm-6 control-label text-danger">温馨提示：</label>
+												<label id="msg" class="control-label text-danger "></label>
+											</div>
+
+
+										</div>
+										<div class="modal-footer text-middle">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">关闭</button>
+											<button type="submit" id="btn_login" class="btn btn-primary">登录</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						</p></li>
+					<!-- 注册按钮 -->
+					<li><p class="navbar-text my-text">
+							<!-- data-target触发模态弹出窗元素 -->
+							<button class="btn btn-my uk-animation-hover" data-toggle="modal"
+								data-target="#regist" type="button">
+								<span class="glyphicon glyphicon-pencil uk-animation-scale-down"
+									aria-hidden="true"></span> 注册
+							</button>
+							<!-- 模态弹出窗内容 -->
+						<div class="modal fade" id="regist" tabindex="-1" role="dialog"
+							aria-labelledby="mySmallModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-sm">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+										</button>
+										<h5 class="modal-title">注册</h5>
+									</div>
+									<form id="form_register" class="form-horizontal">
+										<div class="modal-body">
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label for="inputEmail3">UserName:</label> <input
+														type="text" class="form-control" name="user.username"
+														required placeholder="请输入用户名" id="reg_username">
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label for="inputPassword3">Password:</label> <input
+														type="password" class="form-control" name="user.password"
+														required placeholder="6-16位密码，区分大小写，空格无效" id="reg_pwd">
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label for="exampleInputName2">Telphone:</label> <input
+														type="text" class="form-control" name="user.tel" required
+														placeholder="请输入11位手机号码" id="reg_tel">
+												</div>
+											</div>
+											
+											<div id="div_reg_msg" class="form-group"
+												style="display: none">
+												<label class="col-sm-6 control-label text-danger">温馨提示：</label>
+												<label id="reg_msg" class="control-label text-danger "></label>
+											</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">关闭</button>
+											<button id="btn_register" type="submit"
+												class="btn btn-primary">注册</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						</p></li>
+				</c:if>
+
+				<c:if test="${user != null }">
+
+					<li><a id="header-avator" style="padding: 5px 0px 0px;" data-toggle="tooltip" data-placement="bottom" title="叫我：${sessionScope.user.nickname}"> <c:if
+								test="${sessionScope.user.pic != null and sessionScope.user.pic != ''}">
+								
+									<img src="/2ndClassPic/${sessionScope.user.pic}"
+										class="img-circle img-responsive" width="40" height="40" 
+										alt="picture">
+								
+							</c:if> <c:if test="${sessionScope.user.pic == null or sessionScope.user.pic == ''}">
+								
+									<img src="/2ndClassPic/default.jpg" class="img-circle img-responsive"
+										width="40" height="40" alt="picture">
+								
+								<!-- <p clas="manager_name" >[ 待完善 ]</p> -->
+							</c:if>
+					</a></li>
+					<li><a class="text-warning" href="userAction!personCenter">个人中心</a>
+					</li>
+					<li><a class="text-warning" href="userAction!exit">注销</a></li>
+		</div>
+		</c:if>
+		</ul>
+
+	</div>
+	</div>
+	<!-- /.container-fluid --> </nav>

@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" isELIgnored="false"%>
+    
+	<div id="body">
+		<div class="container">
+			<div class="row">
+				<%@include file="accordion.html" %>
+
+				<div class="col-md-10 col-sm-8 col-xs-6 content">
+					<div class="content-header">
+						<div class="left">
+							<ol class="breadcrumb">
+							  <li><a href="${pageContext.request.contextPath }/managerAction!index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+							  <li ><a href="#collapseSeven" data-toggle="collapse" class="myCollapse" id="caret7">课程类别管理</a></li>
+							  <li class="active">类别信息修改</li>
+							</ol>
+						</div>
+						<div class="right">
+							<span>${manager.nickname},欢迎你！</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="content-body">
+						<div class="sectionOne songUpload ">
+							<br/><br/>
+							<p class="tag visible-md-block visible-lg-block">类别信息修改</p>
+						 	<p style=" font-weight: bold;">尊敬的管理员，请修改以下类别信息：</p>
+
+						 	<form class="form-horizontal" method="post" action="${pageContext.request.contextPath }/typeManagerAction!edittype">
+								<input type="text" name="type.tid" style="display:none" value="${type.tid}" />
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">类别名称：</label>
+								    <div class="col-sm-3">
+								      <input type="text" class="form-control" name="type.tname" placeholder="请输入类别名" value="${type.tname}" required>
+								    </div>
+								</div>
+				
+								<div class="form-group">
+								    <label class="col-sm-5 control-label" >isParent：</label>
+								    <div class="col-sm-3">
+								      <input type="text" placeholder="请输入isParent" name="type.isParent" class="form-control" value="${type.isParent}" required >
+								    </div>
+								</div>
+							
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">parentid：</label>
+								    <div class="col-sm-3">
+						              <input type="text" placeholder="请输入parentid" name="type.parentid" class="form-control" value="${type.parentid}" required >   
+
+						                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+											<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						                </div>
+								    </div>
+								
+
+
+								<p style="text-align: center">
+									<input type="submit" class="btn btn-info btn-sm" value="提交修改"></input>
+									<input type="reset" class="btn btn-warning btn-sm" value="重设信息"></input>
+								</p>
+							</form>
+
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

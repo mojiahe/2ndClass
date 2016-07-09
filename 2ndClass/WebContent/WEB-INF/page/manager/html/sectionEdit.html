@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" isELIgnored="false"%>
+    
+	<div id="body">
+		<div class="container">
+			<div class="row">
+				<%@include file="accordion.html" %>
+
+				<div class="col-md-10 col-sm-8 col-xs-6 content">
+					<div class="content-header">
+						<div class="left">
+							<ol class="breadcrumb">
+							  <li><a href="${pageContext.request.contextPath }/m_getHome.action"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+							  <li ><a href="#collapseTwo" data-toggle="collapse" class="myCollapse" id="caret2">歌曲管理</a></li>
+							  <li class="active">章节信息修改</li>
+							</ol>
+						</div>
+						<div class="right">
+							<span>${manager.nickname},欢迎你！</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="content-body">
+						<div class="sectionOne songEdit ">
+							<br/><br/>
+							<p class="tag visible-md-block visible-lg-block">章节信息修改</p>
+							
+						 	<p style=" font-weight: bold;">尊敬的管理员，请修改章节信息：</p>
+						 	<form class="form-horizontal" method="post" action="${pageContext.request.contextPath }/updateSection}">
+						 		<input type="text" name="section.sid" value="${selectSection.sid}" style="display:none;"/>
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">章节名：</label>
+								    <div class="col-sm-3">
+								      <input type="text" name="section.sname" class="form-control" placeholder="请输入章节名" value="${selectSection.sname}" required>
+								    </div>
+								</div>
+				
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">章节描述：</label>
+								    <div class="col-sm-3">
+								      <input type="text" name="section.sdesc" class="form-control" placeholder="请输入章节描述" value="${selectSection.sdesc}" required>
+								    </div>
+								</div>
+								
+								<div class="form-group">
+								    <label class="col-sm-5 control-label">章节时长：</label>
+								    <div class="col-sm-3">
+								      <input type="text" name="section.time" class="form-control" placeholder="请输入章节时长" value="${selectSection.time}" required>
+								    </div>
+								</div>
+
+								<p style="text-align: center">
+									<input type="submit" class="btn btn-info btn-sm" value="修改信息"></input>
+									<input type="reset" class="btn btn-warning btn-sm" value="重设信息"></input>
+								</p>
+							</form>
+
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

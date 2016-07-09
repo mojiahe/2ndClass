@@ -1,0 +1,130 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<div id="body">
+		<div class="container">
+			<div class="row">
+				<%@include file="accordion.html" %>
+
+				<div class="col-md-10 col-sm-8 col-xs-6 content">
+					<div class="content-header">
+						<div class="left">
+							<ol class="breadcrumb">
+							  <li><a href="${pageContext.request.contextPath }/managerAction!index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+							  <li class="active">控制台</li>
+							</ol>
+						</div>
+						<div class="right">
+							<span>${sessionScope.manager.nickname},欢迎你！</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="content-body">
+						<div class="sectionOne row">
+							<div class="col-md-3 admin">
+								<div class="pic">
+									<br />
+									<c:if test="${sessionScope.manager.pic != null and sessionScope.manager.pic != ''}"><p><img src="/2ndClassPic/${sessionScope.manager.pic}" class="img-circle img-responsive" width="120" alt="picture"></p></c:if>
+									<c:if test="${sessionScope.manager.pic == null or sessionScope.manager.pic == ''}"><p><img src="/2ndClassPic/default.jpg" class="img-circle img-responsive" width="120" alt="picture"></p>
+									<p clas="manager_name">[ 待完善 ]</p>
+									</c:if>
+									
+								</div>
+<script language="javascript">
+	function showtime()
+	{
+	var today,hour,second,minute,year,month,date;
+	today=new Date();
+	year = today.getFullYear();
+	month = today.getMonth()+1;
+	date = today.getDate();
+	hour = today.getHours();
+	minute =today.getMinutes();
+	second = today.getSeconds();
+	document.getElementById('time').innerHTML = year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second; //显示时间
+	setTimeout("showtime();", 1000); //设定函数自动执行时间为 1000 ms(1 s)
+	}
+</script>
+								<div class="note">
+									<p>您好 , <span class="manager_name">${sessionScope.manager.nickname}</span> <br/> 现在时间：<span id="time"><script language="javascript"> showtime();</script></span><br/>
+								</div>
+							</div>
+							<div class="col-md-6 admin-info">
+								<br/>
+								<p>个人基本信息</p>
+								 <div>
+								 	<table class="table table-hover ">
+										<tr class="warning">
+											<td>昵称：</td>
+											<td><span>${sessionScope.manager.nickname}</span></td>
+										</tr>
+										<tr class="success">
+											<td>手机号码：</td>
+											<td><span><c:if test="${sessionScope.manager.tel ==null}">待完善</c:if>
+												<c:if test="${sessionScope.manager.tel !=null}">${sessionScope.manager.tel}</c:if></span></td>
+										<tr class="info">
+											<td>性别：</td>
+											<td><span><c:if test="${sessionScope.manager.sex == 0}">待完善</c:if>
+													<c:if test="${sessionScope.manager.sex == 1}">男</c:if>
+													<c:if test="${sessionScope.manager.sex == 2}">女</c:if></span></td>
+										</tr>
+										</tr>
+										<tr class="danger">
+											<td>最后登录时间：</td>
+											<td><span><c:if test="${sessionScope.manager.lasttime!=null}">${sessionScope.manager.lasttime}</c:if>
+										<c:if test="${sessionScope.manager.lasttime == null}"> 首次登录 </c:if></span></td>
+										</tr>
+								</table>
+
+								<p style="text-align: center"><a href="${pageContext.request.contextPath }/managerAction!modify" class="btn btn-primary btn-sm">修改信息</a></p>
+								 </div>
+							</div>
+						</div>
+						<br />
+						<div class="sectionTwo row">
+							<div class="col-md-3 web-intro">
+								<p>站点统计</p>
+								<p>管理员数<span class="badge">${base.managerNum}</span></p>
+								<p>用户数<span class="badge ">${base.userNum}</span></p>
+								<p>歌曲数<span class="badge ">${base.songNum}</span></p>
+								<p>类别数<span class="badge ">${base.typeNum}</span></p>
+								<p>榜单数<span class="badge ">${base.catalogNum}</span></p>
+								<p>歌词数<span class="badge ">${base.lyricNum}</span></p>
+							</div>
+
+							<div class="col-md-8 system">
+								<p>系统信息</p>
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>服务器信息</th>
+											<th>系统信息</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>操作系统： Windows 7</td>
+											<td>系统开发： 	Struts 2+Spring+Mybatis</td>
+										</tr>
+										<tr class="info">
+											<td>Web服务器： 	Apache Tomcat7.0</td>
+											<td>主页： 	http://www.2nclass.com</td>
+										</tr>
+										<tr class="success">
+											<td>程序语言： 	JAVA</td>
+											<td>数据库： 	MySQL5.0</td>
+										</tr>
+										<tr>
+											<td>前端开发：Bootstrap框架</td>
+											<td>版本：v1.0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

@@ -1,0 +1,88 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" isELIgnored="false"%>
+<div id="body">
+		<div class="container">
+			<div class="row">
+				<%@include file="accordion.html" %>
+
+				<div class="col-md-10 col-sm-8 col-xs-6 content">
+					<div class="content-header">
+						<div class="left">
+							<ol class="breadcrumb">
+							  <li><a href="${pageContext.request.contextPath }/managerAction!index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+							  <li ><a href="#collapseOne" data-toggle="collapse" class="myCollapse" id="caret1">帐号管理</a></li>
+							  <li class="active">修改信息</li>
+							</ol>
+						</div>
+						<div class="right">
+							<span>${sessionScope.manager.nickname},欢迎你！</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="content-body">
+						<div class="sectionOne updateInfo">
+							<p class="tag visible-md-block visible-lg-block">修改信息</p>
+							<c:if test="${sessionScope.manager.pic != null and sessionScope.manager.pic != ''}"><p><img src="/2ndClassPic/${sessionScope.manager.pic}" class="img-circle img-responsive" width="120"id="pic" alt="picture"></p></c:if>
+									<c:if test="${sessionScope.manager.pic == null or sessionScope.manager.pic == ''}"><p><img src="/2ndClassPic/default.jpg" class="img-circle img-responsive" width="120" id="pic"alt="picture"></p>
+									<p clas="manager_name">[ 待完善 ]</p>
+									</c:if>
+							
+						 	<form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/managerAction!resetManagerMessage" enctype="multipart/form-data">
+							  <div class="form-group">
+							    <label class="col-sm-5 control-label">昵称：</label>
+							    <div class="col-sm-3">
+							      <input type="text" name="manager.nickname" class="form-control" value="${sessionScope.manager.nickname}">
+							    </div>
+							  </div>
+
+							<div class="form-group">
+							    <label class="col-sm-5 control-label">性别：</label>
+							  	<div class="col-sm-3 radio">       
+							  		<c:if test="${sessionScope.manager.sex == 0}">
+								  		<label class="col-sm-3">
+									    <input type="radio" name="manager.sex" value="1">男</label>
+								   		 <label class="col-sm-3">
+								   	 	<input type="radio" name="manager.sex" value="2">女</label>
+								    </c:if>
+								  	<c:if test="${sessionScope.manager.sex == 1}">
+								  		<label class="col-sm-3">
+									    <input type="radio" name="manager.sex" value="1" checked>男</label>
+								   		 <label class="col-sm-3">
+								   	 	<input type="radio" name="manager.sex" value="2">女</label>
+								    </c:if>
+								  	<c:if test="${sessionScope.manager.sex == 2}">
+								  		<label class="col-sm-3">
+									    <input type="radio" name="manager.sex" value="1">男</label>
+								   		 <label class="col-sm-3">
+								   	 	<input type="radio" name="manager.sex" value="2" checked>女</label>
+								    </c:if>
+								</div>
+							</div>
+								
+							<div class="form-group">
+							    <label class="col-sm-5 control-label">手机号码：</label>
+							    <div class="col-sm-3">
+							      <input type="text" name="manager.tel" class="form-control" value="${sessionScope.manager.tel}">
+							    </div>
+							</div>
+							
+							<div class="form-group">
+							    <label class="col-sm-5 control-label">更换头像：</label>
+							    <div class="col-sm-3">
+							      <input class="btn btn-default btn-sm col-sm-12" type="file" name="manager.file" onchange="showPreview(this)">
+							    </div>
+							</div>
+
+							  <p style="text-align: center">
+							  	
+							  	<input type="submit" class="btn btn-primary btn-sm" value="修改信息"></input>
+							  </p>
+							</form>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

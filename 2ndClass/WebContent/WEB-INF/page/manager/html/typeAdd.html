@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+pageEncoding="utf-8" isELIgnored="false"%>
+
+<div id="body">
+	<div class="container">
+		<div class="row">
+			<%@include file="accordion.html"%>
+
+
+			<div class="col-md-10 col-sm-8 col-xs-6 content">
+				<div class="content-header">
+					<div class="left">
+						<ol class="breadcrumb">
+							<li><a
+								href="${pageContext.request.contextPath }/managerAction!index"><span
+									class="glyphicon glyphicon-home"></span> 首页</a></li>
+							<li><a href="#collapseSeven" data-toggle="collapse"
+								class="myCollapse" id="caret7">课程类别管理</a></li>
+							<li class="active">类别添加</li>
+						</ol>
+					</div>
+					<div class="right">
+						<span>${manager.mname},欢迎你！</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="content-body">
+					<div class="sectionOne songUpload ">
+						<br /> <br />
+						<p class="tag visible-md-block visible-lg-block">类别添加</p>
+						<p style="font-weight: bold;">尊敬的管理员，请填写新的类别信息：</p>
+
+						<form class="form-horizontal" method="post"
+							action="${pageContext.request.contextPath }/typeManagerAction!addtype">
+							<div class="form-group">
+								<label class="col-sm-5 control-label">类别名称：</label>
+								<div class="col-sm-3">
+									<input type="text" name="type.tname" class="form-control"
+										placeholder="请输入类别名" required autofocus>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-5 control-label">isParent：</label>
+								<div class="col-sm-3">
+									<input type="text" name="type.isParent"
+										placeholder="请输入isParent" class="form-control" value=""
+										required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-5 control-label">parentid：</label>
+								<div class="col-sm-3">
+									<input type="text" name="type.parentid"
+										placeholder="请输入isParent" class="form-control" value=""
+										required>
+								</div>
+							</div>
+
+							
+							<div class="form-group">
+								<label class="col-sm-5 control-label">isDel：</label>
+								<div class="col-sm-3">
+									<input type="text" name="type.is_del" placeholder="请输入"
+										class="form-control" value="0" required>
+								</div>
+							</div>
+
+							<p style="text-align: center">
+								<input type="submit" class="btn btn-info btn-sm" value="添加类别"></input>
+								<input type="reset" class="btn btn-warning btn-sm" value="重设信息"></input>
+							</p>
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>

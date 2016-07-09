@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    
+<div class="col-md-2 col-sm-4 col-xs-6 controller">
+					 <div class="panel-group" id="accordion">
+
+						<div class="panel panel-default">
+							<a href="${pageContext.request.contextPath }/managerAction!index"><button class="btn btn-default home"><span class="glyphicon glyphicon-cog"></span> 控制台主页</button></a>
+
+							<a id="caret1" href="#collapseOne" data-toggle="collapse">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<span class="glyphicon glyphicon-user"></span> 帐号管理<span id="icon" class="glyphicon glyphicon-menu-right pull-right"></span><div class="clearfix"></div>
+									</h4>
+								</div>
+							</a>
+							<div id="collapseOne" class="panel-collapse collapse">
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/managerAction!modify">--- 修改信息</a>
+								</div>
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/managerAction!modifypwd">--- 修改密码</a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<a id="caret5" href="#collapseFive" data-toggle="collapse">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<span class="glyphicon glyphicon-list"></span> 教师管理<span id="icon" class="glyphicon glyphicon-menu-right pull-right"></span><div class="clearfix"></div>
+									</h4>
+								</div>
+							</a>
+							<div id="collapseFive" class="panel-collapse collapse">
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/getAllTeacher">--- 教师列表</a>
+								</div>
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/gotoPageTeacherInsert">--- 教师添加</a>
+								</div>
+								
+								<div class="clearfix"></div>
+							</div>
+						</div>
+
+						
+
+						<div class="panel panel-default">
+							<a id="caret7" href="#collapseSeven" data-toggle="collapse">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<span class="glyphicon glyphicon-book"></span> 用户管理<span id="icon" class="glyphicon glyphicon-menu-right pull-right"><p class="text"></p></span><div class="clearfix"></div>
+									</h4>
+								</div>
+							</a>
+							<div id="collapseSeven" class="panel-collapse collapse">
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/userAction!gotoUserList">--- 用户列表</a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<a id="caret2" href="#collapseTwo" data-toggle="collapse">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<span class="glyphicon glyphicon-music"></span> 课程管理<span id="icon" class="glyphicon glyphicon-menu-right pull-right"></span><div class="clearfix"></div>
+									</h4>
+								</div>
+							</a>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/getCourseByName">--- 课程列表</a>
+								</div>
+								
+
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/gotoPageCourseInsert">--- 课程添加</a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+
+						
+						<div class="panel panel-default">
+							<a id="caret4" href="#collapseFour" data-toggle="collapse">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<span class="glyphicon glyphicon-stats"></span> 类别管理<span id="icon" class="glyphicon glyphicon-menu-right pull-right"></span><div class="clearfix"></div>
+									</h4>
+								</div>
+							</a>
+							<div id="collapseFour" class="panel-collapse collapse">
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/typeManagerAction!getTypeByName">--- 类别列表</a>
+								</div>
+								<div class="panel-body">
+									<a href="${pageContext.request.contextPath }/typeManagerAction!add">--- 类别添加</a>
+								</div>
+								<div class="clearfix"></div>
+
+							</div>
+						</div>
+				</div> 
+				</div>

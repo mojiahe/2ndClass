@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" isELIgnored="false"%>
+	<div id="body">
+		<div class="container">
+			<div class="row">
+				<%@include file="accordion.html"%>
+
+				<div class="col-md-10 col-sm-8 col-xs-6 content">
+					<div class="content-header">
+						<div class="left">
+							<ol class="breadcrumb">
+							  <li><a href="${pageContext.request.contextPath }/managerAction!index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+							  <li ><a href="#collapseSeven" data-toggle="collapse" class="myCollapse" id="caret2">课程管理</a></li>
+							  <li class="active">课程列表</li>
+							</ol>
+						</div>
+						<div class="right">
+							<span>${manager.nickname},欢迎你！</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="content-body">
+						<div class="sectionOne songList">
+							<br/>
+							
+							<div class="control row">
+							<form action="${pageContext.request.contextPath }/getCourseByName" method="post">
+								<div class="col-md-2 " style="line-height: 1.9;">请输入关键字：</div>
+								<div class="col-md-3"><input type="text" name="courseQueryVo.cname" placeholder="用户名/昵称" style="line-height: 1.9;" size="35"/></div>
+								<div class="col-md-1"><button type="submit" class="btn btn-primary btn-sm">查询</button></div>
+							</form>
+								
+							
+								<br />
+								<br />
+							</div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="col-md-1">编号</th>
+										<th  class="col-md-1">用户名</th>
+										<th class="col-md-1">昵称</th>
+										<th  class="col-md-2">地址</th>
+										<th  class="col-md-2">性别</th>
+										<th  class="col-md-2">职业</th>
+										<th  class="col-md-2">简介</th>
+										<th  class="col-md-1">是否已经删除</th>
+										<th  class="col-md-2">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:if test="${users!=null}">
+										<c:forEach items="${users}" var="u" varStatus="status">
+										<tr>
+											<td>${status.count}</td>
+											<td>${u.username}</td>
+											<td>${u.nickname}</td>
+											<td>${u.addr}</td>
+											<td>
+												<c:if test="${u.sex == 0}">未填写</c:if>
+												<c:if test="${u.sex == 1}">男</c:if>
+												<c:if test="${u.sex == 2}">女</c:if>
+											</td>
+											<td>${u.job}</td>
+											<td>${u.intro}</td>
+											<td>
+											   <c:if test="${u.is_del==0}">
+											             激活
+											   </c:if>
+											   <c:if test="${u.is_del==1}">
+											             冻结
+											   </c:if>
+											</td>
+											<td>
+												<c:if test="${u.is_del==0}">
+											            <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath }/userAction!updateInfo?user.uid=${u.uid}&user.is_del=1" onclick="return window.confirm('确定操作吗？')">冻结</a>
+											   </c:if>
+											   <c:if test="${u.is_del==1}">
+											             <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath }/userAction!updateInfo?user.uid=${u.uid}&user.is_del=0" onclick="return window.confirm('确定操作吗？')">激活</a>
+											   </c:if>
+												
+											</td>
+										</tr>
+										</c:forEach>
+									</c:if>
+									
+								</tbody>
+							</table>
+							<c:if test="${users==null}">
+								<p>抱歉，暂无数据！</p>
+							</c:if>
+							<c:if test="${courseslist!=null and pu.pageCount >1}">
+							<div id="example1" style="text-align: center"> <ul id="pageLimit"></ul> </div>
+
+<script type="text/javascript">
+    
+    $('#pageLimit').bootstrapPaginator({    
+    currentPage: ${currPage},    
+    totalPages: ${pu.pageCount},    
+    size:"normal",    
+    bootstrapMajorVersion: 3,    
+    alignment:"right",    
+    numberOfPages:${pu.pageSize},
+    pageUrl:function(type, page, current){return '${pageContext.request.contextPath}/m_getPage.action?pageNum='+page; },
+    itemTexts: function (type, page, current) {        
+        switch (type) {            
+        case "first": return "首页";            
+        case "prev": return "上一页";            
+        case "next": return "下一页";            
+        case "last": return "末页";            
+        case "page": return page;
+        }
+    }
+});
+</script>
+</c:if>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	
+	

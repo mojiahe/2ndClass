@@ -1,0 +1,87 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+pageEncoding="utf-8" isELIgnored="false"%>
+<div id="body">
+	<div class="container">
+		<div class="row">
+			<%@include file="accordion.html" %>
+
+			<div class="col-md-10 col-sm-8 col-xs-6 content">
+				<div class="content-header">
+					<div class="left">
+						<ol class="breadcrumb">
+							<li><a
+								href="${pageContext.request.contextPath }/m_getHome.action"><span
+									class="glyphicon glyphicon-home"></span> 首页</a></li>
+							<li><a href="#collapseTwo" data-toggle="collapse"
+								class="myCollapse" id="caret2">章节管理</a></li>
+							<li class="active">添加章节</li>
+						</ol>
+					</div>
+					<div class="right">
+						<span>${manager.nickname},欢迎你！</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="content-body">
+					<div class="sectionOne songUpload ">
+						<br /> <br />
+						<p class="tag visible-md-block visible-lg-block">添加章节</p>
+						<p style="font-weight: bold;">尊敬的管理员，请完善老师信息：</p>
+						<form class="form-horizontal" method="post"
+							action="${pageContext.request.contextPath }/insertSection"
+							enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="col-sm-5 control-label">章节名称：</label>
+								<div class="col-sm-3">
+									<input type="text" name="section.sname" class="form-control"
+										placeholder="请输入章节名称" required autofocus>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-5 control-label">章节描述：</label>
+								<div class="col-sm-3">
+									<input type="text" name="section.sdesc" class="form-control"
+										placeholder="请输入章节描述" required autofocus>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-5 control-label">章节序号：</label>
+								<div class="col-sm-3">
+									<input type="text" name="section.ord" class="form-control"
+										placeholder="请输入章节序号" required autofocus>
+								</div>
+							</div>
+
+                            <div class="form-group">
+								<label class="col-sm-5 control-label">章节时长：</label>
+								<div class="col-sm-3">
+									<input type="text" name="section.time" class="form-control"
+										placeholder="请输入章节序号" required autofocus>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-5 control-label">章节视频上传：</label>
+								<div class="col-sm-3">
+									<input class="btn btn-default btn-sm col-sm-12"
+										name="section.url" type="file" required />
+								</div>
+							</div>
+
+
+							<p style="text-align: center">
+								<input type="submit" class="btn btn-info btn-sm" value="添加章节"></input>
+								<input type="reset" class="btn btn-warning btn-sm" value="重设信息"></input>
+							</p>
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
