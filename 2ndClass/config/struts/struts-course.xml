@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+    <package name="courseAction" extends="struts-default" namespace="/">       
+        <action name="getCourseOnHome" class="courseAction" method="getCourseOnHome">  
+            <result name="success" type="dispatcher">index.jsp</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action>  
+        <action name="getCourseAndInfoByType" class="courseAction" method="getCourseAndInfoByType">  
+            <result name="success" type="dispatcher">WEB-INF/page/user/course.jsp</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action>  
+        <action name="getAllCourseAndInfoType" class="courseAction" method="getAllCourseAndInfoType">  
+            <result name="success" type="dispatcher">WEB-INF/page/manager/courseList.jsp</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+        
+        <action name="removeCourseByCid" class="courseAction" method="removeCourseByCid">  
+            <result name="success" type="redirect">/getAllCourseAndInfoType</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action>
+        <action name="getCourseByName" class="courseAction" method="getCourseByName">  
+            <result name="success" type="dispatcher">WEB-INF/page/manager/courseList.jsp</result>
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+        <action name="saveEditCourse" class="courseAction" method="saveEditCourse">  
+            <result name="success" type="dispatcher">WEB-INF/page/manager/courseEdit.jsp</result>
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action>  
+        <action name="updateCourseAndInfo" class="courseAction" method="updateCourseAndInfo">  
+            <result name="success" type="redirect">/getAllCourseAndInfoType</result>
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+         
+         
+         <action name="gotoPageCourseInsert" class="courseAction"
+			method="gotoPageCourseInsert">
+			<result name="success" type="dispatcher">WEB-INF/page/manager/courseInsert.jsp
+			</result>
+		</action>
+		<action name="gotoIndex" class="courseAction"
+			method="getCourseOnHome">
+			<result name="success" type="dispatcher">index.jsp
+			</result>
+		</action>
+    </package>  
+  
+</struts>  

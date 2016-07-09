@@ -1,0 +1,21 @@
+	body{
+			font-size: 1.2rem; 
+			 padding-top: 60px;
+			 padding-bottom: 60px;
+		}
+		.top-bar{
+				color: #fff;
+				background-color: #DC143C;
+			}
+	
+		.btn-right{
+			float: right;
+		}		
+		.btn-active{
+			color: #FF0000;
+
+		}
+	a{
+		color: #6495ED;
+		font-size: 1.1rem;
+			}

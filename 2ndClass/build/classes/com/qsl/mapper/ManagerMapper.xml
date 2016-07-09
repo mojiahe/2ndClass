@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.qsl.mapper.ManagerMapper">
+	<select id="selectManagerByName" parameterType="manager" resultType="manager" >
+		SELECT mname,password,nickname,sex,tel,pic,lasttime FROM MANAGER WHERE mname = #{mname}
+	</select>
+	
+	<select id="selectManagerByTel" parameterType="manager" resultType="manager" >
+		SELECT mname,tel FROM MANAGER WHERE tel = #{tel}
+	</select>
+	
+	<insert id="insertManager" parameterType="manager" >
+		INSERT INTO MANAGER(mname,password,tel,sex) 
+			VALUES(#{mname},#{password},#{tel},#{sex})
+	</insert>
+	
+	<update id="updateManager" parameterType="manager">
+		UPDATE MANAGER 
+			<set>
+				<if test="mname != null and mname != ''">
+					mname = #{mname},
+				</if>
+				<if test="password != null and password != ''">
+					password = #{password},
+				</if>
+				<if test="nickname != null and nickname != ''">
+					nickname = #{nickname},
+				</if>
+				<if test="sex != null and sex != ''">
+					sex = #{sex},
+				</if>
+				<if test="tel != null and tel != ''">
+					tel = #{tel},
+				</if>
+				<if test="pic != null and pic != ''">
+					pic = #{pic},
+				</if>
+				<if test="lasttime != null and lasttime != ''">
+					lasttime = #{lasttime}
+				</if>
+			</set>
+			WHERE mname = #{mname}
+		
+	</update>
+
+</mapper>

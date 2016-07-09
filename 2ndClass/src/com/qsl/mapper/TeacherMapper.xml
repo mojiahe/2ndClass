@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qsl.mapper.TeacherMapper">
+   <sql id="query_condition">
+     <if test="tea_name!=null and tea_name!=''">
+       and tea_name like '%${tea_name}%'
+     </if>
+ </sql>
+   <select id="selectTeacherByCondition" parameterType="teacher" resultType="teacher">
+        select * FROM teacher 
+      <where>
+         <include refid="query_condition"></include>
+      </where>
+
+   </select>
+   
+   <select id="selectTeacherByTeacherName" parameterType="String" resultType="teacher">
+        select * from teacher where tea_name =#{tea_name} 
+   </select>
+   
+   <select id="selectTeacherById" parameterType="int" resultType="teacher">
+        select * from teacher where tea_id =#{tea_id} 
+   </select>
+   
+   <insert id="insertTeacher" parameterType="teacher">
+       insert into teacher (tea_name,job,exp,pic) values (#{tea_name},#{job},#{exp},#{pic})  
+   </insert>
+   
+   <update id="updateTeacher" parameterType="teacher" >
+      update teacher 
+      <set> 
+        <if test="tea_name!=null and tea_name != ''">
+       tea_name=#{tea_name} ,
+       </if> 
+       <if test="exp!=null and exp != ''">
+       exp=#{exp} , 
+       </if> 
+       <if test="job!=null and job != ''">
+       job=#{job},
+       </if> 
+       <if test="pic!=null and pic != ''"> 
+       pic=#{pic},
+       </if> 
+       <if test="is_del!=null and is_del!= ''">
+       is_del=#{is_del} ,
+       </if> 
+       </set> 
+       where tea_id=#{tea_id}
+   </update>
+  
+</mapper> 

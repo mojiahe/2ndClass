@@ -1,0 +1,338 @@
+@import url(jquery.mCustomScrollbar.css);
+
+.contents{
+	position: absolute;
+	width: 99.5%;
+	height: 98%;
+	overflow：auto;
+}
+.clear{
+	clear:both; 
+	height: 0; 
+	line-height: 0; 
+	font-size: 0
+}
+.active{
+	color: blue;
+}
+
+.tag{
+	-ms-transform:rotate(-38deg); /* IE 9 */
+	-moz-transform:rotate(-38deg); /* Firefox */
+	-webkit-transform:rotate(-38deg); /* Safari and Chrome */
+	-o-transform:rotate(-38deg); /* Opera */
+	transform:rotate(-38deg);
+	width: 400px;
+	position: relative;
+	text-align: center;
+	top:20px;
+	left: -100px;
+	line-height: 4;
+	font-style: italic;
+
+}
+
+.mang{
+	overflow:hidden; 
+	display:block;
+	white-space:nowrap; 
+	width: 450px;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	margin: 0 auto;
+}
+/*导航栏样式*/
+header .container{
+	width: 95%;
+}
+.navbar-header a{
+	padding: 0;
+	margin: 8px 15px;
+}
+
+.nav li{
+	text-align: center;
+}
+.nav li:hover{
+	background-color: #EFEFEF;
+}
+
+.nav li a{
+	padding: 0;
+	margin: 5px 15px;
+}
+.nav li a span{
+	display: block;
+}
+/*中部内容样式*/
+#body{
+	margin-top: 75px;
+
+}
+#body .container{
+	width: 100%;
+	padding: 0;
+}
+#body .container .row{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+/*左部控制台*/
+#body .controller {
+	padding: 0;
+	height: 100%;
+	position: fixed;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #ddd;
+}
+#body .controller .home{
+	width: 100%;
+	background-color: #D9EDF7;
+	border-radius: 0;
+	font-weight: bold;
+
+}
+
+
+#body .container .panel{
+	border-style: solid;
+	border-color: #ddd;
+	border-width: 0px;
+	border-bottom-width:1PX;
+	border-radius: 0;
+}
+
+#body .container .panel-title{
+	font-size: 13px;
+}
+/*选择panel-collapse下首个div*/
+#body #accordion .panel-collapse>div:first-child{
+	border-top: 1px solid #ddd;
+}
+/*选择panel-collapse下非首元素*/
+#body #accordion .panel-collapse div:not(:first-child){
+	border-top: 1px dashed #ddd;
+}
+
+#body a:hover{
+	text-decoration: none;
+}
+#body #accordion .panel-heading h4{
+	color: #000;
+}
+#body #accordion .panel > a{
+	text-decoration: none;
+}
+#body #accordion .panel-collapse .panel-body{
+	border-left-width: 1px; 
+	border-left-style: dotted; 
+	width: 90%; 
+	float: right; 
+	padding-left: 0px;
+}
+
+#body #accordion .panel-collapse .panel-body a{
+	color: RGBA(117, 125, 103, 0.49);
+}
+#body #accordion .panel-collapse .panel-body a:hover{
+	color: #000;
+}
+
+/*右边content*/
+#body .container .row .content {
+	float: right;
+	padding-left: 0;
+	padding-right: 0;
+}
+/*右边content的content-header*/
+.content .content-header{
+	width: 100%;
+	background-color: #D9EDF7;
+	font-weight: bold;
+	border-bottom-width: 1px; 
+	border-bottom-style: solid;
+	border-color: #ddd;
+}
+.content .content-header > div {
+	display: inline;
+}
+.content .content-header .left{
+	float: left;
+}
+.content .content-header .left .breadcrumb{
+	background-color: #D9EDF7;
+	margin-bottom: 0px;
+	padding-bottom: 5px;
+	padding-left: 30px;
+}
+.content .content-header .right{
+	float: right;
+	
+}
+.content .content-header .right span{
+	line-height: 2.3;
+	padding-right: 25px;
+}
+
+/*右边content的content-body*/
+.content .content-body{
+	width: 96%; 
+	margin: 2.5%;
+}
+/*右边congtent的content-body下的sectionOne*/
+.content .content-body .row > div{
+	border:1px solid #B5CFD9;
+	border-radius: 3px;
+}
+
+.content .content-body .row > div:first-child{
+	margin-left: 2%;
+}
+
+.content .content-body .row > div:last-child{
+	margin-left: 3%;
+}
+.content .content-body .sectionOne,.content .content-body .sectionOne .admin{
+	text-align: center;
+}
+.content .content-body .sectionOne > div{
+	padding: 0px;
+}
+.content .content-body .sectionOne .pic img{
+	display: inline;
+}
+.content .content-body .sectionOne .note{
+	border-top-width: 1px; 
+	border-top-style: solid; 
+	border-color: #B5CFD9;
+	margin-left: 0px;
+	padding: 5% 5% 0px;
+}
+
+.content .content-body .sectionOne .admin-info > p{
+	margin-left: 0px;
+	padding-left: 3%;
+	font-size: 15px;
+}
+.content .content-body .sectionOne .admin-info > div{
+	 margin-left: 10%; 
+	 margin-right: 10%;
+}
+
+.content .content-body .sectionOne .admin-info table td{
+	border: none;
+}
+/*右边congtent的content-body下的sectionTwo*/
+.content .content-body .sectionTwo .web-intro{
+	margin: 0;
+	padding:0;
+}
+.content .content-body .sectionTwo .web-intro > p{
+	padding-bottom: 5%;
+	padding-left: 7%;
+	font-size: 13px;
+	border-bottom: 1px solid #ddd;
+	padding-right: 10%;
+}
+
+.content .content-body .sectionTwo .web-intro > p span{
+	float: right;
+	background-color: #B5CFD9;
+}
+
+.content .content-body .sectionTwo .web-intro > p:first-child{
+	line-height: 1.4;
+	padding-top: 5%;
+	font-size: 15px;
+}
+
+.content .content-body .sectionTwo .web-intro > p:last-child{
+	border-bottom-width: 0px;
+	margin-bottom: 0px;
+}
+
+.content .content-body .sectionTwo .system{
+	padding:0;
+}
+
+.content .content-body .sectionTwo .system > p:first-child{
+	line-height: 1.4;
+	padding-top: 2%;
+	padding-bottom: 1.8%;
+	padding-left: 4%;
+	font-size: 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+.content .content-body .sectionTwo .system .table{
+	margin-bottom: 0px;
+}
+
+/*updateInfo.html*/
+.content .content-body .updateInfo{
+	border:1px solid #B5CFD9 ;
+	overflow: hidden;
+}
+.content .content-body .updateInfo .tag{
+	background-color: rgba(89, 135, 242, 0.6);
+}
+.content .content-body .updateInfo img{
+	display: inline;
+}
+.content .content-body .updateInfo label{
+	font-weight: normal;
+}
+
+/*updatePassword.html*/
+.content .content-body .updatePassword{
+	border:1px solid #B5CFD9 ;
+	overflow: hidden;
+
+}
+.content .content-body .updatePassword .tag{
+	background-color: rgba(197, 154, 233, 0.6);
+}
+.content .content-body .updatePassword label{
+	font-weight: normal;
+}
+
+/*songlist.html*/
+.content .content-body .songList{
+	border:1px solid #B5CFD9 ;
+}
+.content .content-body .songList .control{
+	border-bottom:1px solid #B5CFD9 ;
+}
+.content .content-body .songList .control div{
+	border:none;
+	margin: 0;
+}
+.content .content-body .songList th{
+	text-align: center;
+}
+/*songUpload.html*/
+.content .content-body .songUpload{
+	border:1px solid #B5CFD9 ;
+	overflow: hidden;
+}
+.content .content-body .songUpload .tag{
+	background-color: #B5CFD9;
+}
+.content .content-body .songUpload div{
+	border:none;
+}
+.content .content-body .songUpload label{
+	font-weight: normal;
+}
+/*songEdit.html*/
+.content .content-body .songEdit{
+	border:1px solid #B5CFD9 ;
+	overflow: hidden;
+}
+.content .content-body .songEdit .tag{
+	background-color: RGBA(222, 208, 130, 0.81);
+}
+
+

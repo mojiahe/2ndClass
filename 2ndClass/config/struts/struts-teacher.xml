@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="teacherActions" extends="struts-default"
+		namespace="/">
+		<action name="getAllTeacher" class="teacherAction" method="getAllTeacher">
+			<result name="success" type="dispatcher">WEB-INF/page/manager/teacherList.jsp
+			</result>
+			<result name="fail" type="redirect">/fail.jsp</result>
+		</action>
+		<action name="insertTeacher" class="teacherAction" method="insertTeacher">
+			<result name="success" type="redirect">/getAllTeacher</result>
+			<result name="fail" type="redirect">/fail.jsp</result>
+		</action>
+		<action name="delTeacher" class="teacherAction" method="delTeacher">
+			<result name="success" type="redirect">/getAllTeacher</result>
+			<result name="fail" type="redirect">/fail.jsp</result>
+		</action>
+		<action name="updateTeacher" class="teacherAction" method="updateTeacher">
+			<result name="success" type="redirect">/getAllTeacher</result>
+			<result name="fail" type="redirect">/fail.jsp</result>
+		</action>
+		<action name="getTeacherByName" class="teacherAction" method="getTeacherByName">
+			<result name="success" type="dispatcher">WEB-INF/page/manager/teacherList.jsp
+			</result>
+			<result name="fail" type="redirect">/fail.jsp</result>
+		</action>
+		<action name="saveEditTeacher" class="teacherAction" method="saveEditTeacher">
+			<result name="success" type="dispatcher">WEB-INF/page/manager/teacherEdit.jsp
+			</result>
+			<result name="fail" type="redirect">/fail.jsp</result>
+		</action>
+
+
+		<action name="gotoPageTeacherInsert" class="teacherAction"
+			method="gotoPageTeacherInsert">
+			<result name="success" type="dispatcher">WEB-INF/page/manager/teacherInsert.jsp
+			</result>
+		</action>
+		
+		
+	</package>
+
+</struts>  

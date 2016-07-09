@@ -1,0 +1,86 @@
+body{font-size: 1.4rem;}
+		.navbar{
+			margin-bottom: 0px;
+		}
+		.my-text{
+			margin-top: 7px;
+		}
+		.my-brand{
+			padding: 0; margin-right: 50px;
+			 }
+		#login,#regist{
+			top:20%;
+		}
+
+		#myCarousel{
+			height: 500px; background-color: #000; margin-bottom: 60px;
+		}
+		#myCarousel .item{
+		 height: 500px;background-color: #000;
+		}
+		#myCarousel img{
+			width: 100%;
+			height: 100%;
+		}
+		.carousel-caption{
+			top: 60%;
+			left: 60%;
+		}
+		.my-caption{
+			top: 35%;
+			left: 25%;			
+		}
+		.my-caption a{
+			color: #ccc;
+		}
+		#myContainer .my-class{
+			text-align: center;
+		}
+		#myContainer .col-md-4 h3{
+			font-style: oblique;
+			color: #656E73;
+		}
+		.my-class .uk-thumbnail{
+			border:0;
+		}
+
+		.course .my-class .introduce{
+			display: none;
+		}
+		
+
+		.course .my-class:hover .introduce{
+			display: block;
+		}
+		.course .my-class:hover .info{
+			display: none;
+
+		}
+		.footer{
+			margin-top: 2%;
+			padding-top: 2%;
+			background-color: #222222;
+		}
+		.footer a {
+			text-decoration: none;
+		}
+		.footer-link{
+			margin-bottom: 1%;
+		}
+		.footer-link a{
+			margin:0 30px;
+			color: #DD4A3A;
+		}
+	
+		.footer .link-logo{
+			opacity: 0.5;
+		}
+		.footer .link-logo:hover{
+			opacity: 1;
+		}
+
+p#back-to-top{
+      position:fixed;
+      bottom:0px;
+      right:80px;
+}

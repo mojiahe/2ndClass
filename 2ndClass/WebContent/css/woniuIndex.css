@@ -1,0 +1,140 @@
+body {
+    font: 12px/ 1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif;
+    padding: 0;
+    margin: 0;
+    
+}
+
+@media (min-width: 540px) {
+      body {
+        font: 13px/ 1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif;
+     }
+  }
+
+@media (min-width: 768px) {
+      body {
+        font: 8px/ 1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif;
+     }
+   }
+  }
+@media (min-width: 992px) {
+      body {
+     font: 10px/ 1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif;
+      }
+  }
+@media (min-width: 1200px) {
+      body {
+      font: 15px/ 1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif;
+  }
+  }
+a:hover{
+     cursor: pointer;
+	}
+.navbar0{
+	margin:auto 0px;
+	margin-bottom:0px;
+	border-radius: 0px;
+	}
+.navbar1{
+	margin-bottom: 0px;
+	padding-bottom: 13px;
+}
+.brand0{
+	padding:0px 0px;
+}
+.brand1{
+	padding-left: 0px;
+}
+#myCarousel {
+	margin: 0px 0 0 0;
+}
+.search_text{
+	border-top-left-radius: 20px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 0px;
+	height: 34px;
+	width: 50%;
+	display: inline-block;
+}
+.search_btn{
+	border-top-left-radius: 0px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 20px;
+	margin-left: -4px;
+    height: 34px;
+}
+#navbar-collapse ul {
+	margin-top:0;
+}
+.carousel-inner img {
+	margin: 0 auto;
+}
+.carousel-control {
+	font-size: 100px;
+}
+.woFirstPlaySmall{
+	margin-left: 1%;
+	margin-bottom: 1%;
+	padding-bottom: 0px;
+	padding-top:0px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.guessWoFirstPlaySmall{
+	margin-left: 0%;
+	margin-right: 2.1%;
+	padding-bottom: 0px;
+	padding-top:0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	position:relative;
+}
+.guessText{
+	position: absolute;
+	z-index: 0;
+	left: 10%;
+	top: 58%;
+	font-size: 1.3rem;	
+}
+.guessWoFirstPlaySmall:hover,.woFirstPlaySmall:hover,.woFirstPlayBig:hover{
+    border:0px solid #cf9;
+    box-shadow: 2px 2px 3px #ccc;
+	cursor: pointer;
+}
+.woFirstPlayBig:hover .ico_play{
+    background-image:url(../images/ico_play.png)
+}
+.ico_play {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 60px;
+    height: 60px;
+}
+.footer{
+	text-align:center;
+	margin-top: 40px;
+	margin-bottom: 20px;	
+}
+.theHot{
+	width: 20%;
+	font-weight: 500;
+}
+.theSongName{
+	width: 40%;
+	font-weight: 500;
+}
+.theSinger{
+	width: 25%;
+	font-weight: 500;
+}
+.addSong{
+	width: 15%;
+	font-weight: 500;
+	padding-left: 
+}
+.guessTitle{
+	color: #FFF;
+}

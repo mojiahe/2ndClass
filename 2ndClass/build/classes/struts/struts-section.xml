@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+    <package name="sectionAction" extends="struts-default" namespace="/">       
+        <action name="sectionDetail" class="sectionAction" method="sectionDetail">  
+            <result name="success" type="dispatcher">WEB-INF/page/user/course_detail.jsp</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action>  
+        <action name="getAllSection" class="sectionAction" method="getAllSection">  
+            <result name="success" type="dispatcher">WEB-INF/page/manager/sectionList.jsp</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+         <action name="delSection" class="sectionAction" method="delSection">  
+            <result name="success" type="redirect">/getAllSection</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+        <action name="updateSection" class="sectionAction" method="updateSection">  
+            <result name="success" type="redirect">/getAllSection</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+        <action name="saveEditSection" class="sectionAction" method="saveEditSection">  
+            <result name="success" type="dispatcher">WEB-INF/page/manager/sectionEdit.jsp</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+        <action name="insertSection" class="sectionAction" method="insertSection">  
+            <result name="success" type="redirect">/getAllSection</result> 
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action> 
+        <action name="courseViedo" class="sectionAction" method="getOneSectionAndCourseInfo">  
+            <result name="success" type="dispatcher">WEB-INF/page/user/course_video.jsp</result>
+            <result name="fail" type="redirect">/fail.jsp</result>
+        </action>   
+    </package>  
+  
+</struts>  

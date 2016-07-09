@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+    <package name="ManagerActions" extends="struts-default" namespace="/">
+    	<action name="managerAction" class="managerAction" > 
+    		<result name="login_success">/WEB-INF/page/manager/home.jsp</result>
+    		<result name="login_fail" type="dispatcher">/managerlogin.jsp</result>
+    		<result name="forget_success">/findPassword.jsp</result>
+    		<result name="forget_fail" type="dispatcher">/findPwdapprove.jsp</result>
+    		<result name="add_success" type="dispatcher">/WEB-INF/page/manager/home.jsp</result>
+    		<result name="add_fail" type="dispatcher">/WEB-INF/page/manager/home.jsp</result>
+    		<result name="reset_success" type="dispatcher">/managerlogin.jsp</result>
+    		<result name="reset_fail" type="dispatcher">/findPassword.jsp</result>
+    		<result name="exit_success" type="dispatcher">/managerlogin.jsp</result>
+    		<result name="modify_success" type="dispatcher">/WEB-INF/page/manager/updateInfo.jsp</result>
+    		<result name="modifypwd_success" type="dispatcher">/WEB-INF/page/manager/updatePassword.jsp</result>
+    		<result name="index_success" type="dispatcher">/WEB-INF/page/manager/home.jsp</result>
+    		<result name="info_success" type="redirectAction">managerAction!index</result>
+    	</action>
+    </package>
+    
+</struts>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qsl.mapper.CourseInfoMapper">
+   <sql id="query_condition">
+     <if test="cid!=null and cid!=''">
+       and cid =#{cid}
+     </if>
+     
+ </sql>
+   <select id="selectCourseInfo" parameterType="courseInfo" resultType="courseInfo">
+      SELECT * from cour_tea_rel  
+      <where>
+         <include refid="query_condition"></include>
+      </where>
+   </select>
+  
+
+   <insert id="insertCourseInfo" parameterType="courseInfo">
+     insert into cour_tea_rel (cid,tea_id,scope,method,harvest) values (#{cid},#{tea_id},#{scope},#{method},#{harvest})
+   </insert>
+   
+   <update id="updateCourseInfo" parameterType="courseInfo" >
+     update cour_tea_rel 
+     <set>
+     <if test="scope!=null and scope!=''">
+     scope=#{scope} ,
+     </if> 
+     <if test="method!=null and method!=''">
+     method=#{method},
+     </if> 
+     <if test="harvest!=null and harvest!=''">
+     harvest=#{harvest},
+     </if> 
+     <if test="is_del!=null and is_del!=''">
+     is_del=#{is_del},
+     </if> 
+     </set>
+     where cid=#{cid} and tea_id=#{tea_id}
+   </update>
+  
+</mapper> 

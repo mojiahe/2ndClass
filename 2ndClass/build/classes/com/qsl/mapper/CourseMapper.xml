@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qsl.mapper.CourseMapper">
+	<sql id="query_condition">
+		<if test="cname!=null and cname!=''">
+			and cname like '%${cname}%'
+		</if>
+		<if test="type!=null and type.tname!=null and type.tname != ''">
+			and t1.tname = #{type.tname}
+		</if>
+		
+	</sql>
+
+
+	<resultMap type="courseCustom" id="courseAndTypeAndInfo">
+		
+		<id column="cid" property="cid" />
+		<result column="cname" property="cname" />
+		<result column="pic" property="pic" />
+		<result column="chapter_num" property="chapter_num" />
+		<result column="stu_num" property="stu_num" />
+		<result column="cdesc" property="cdesc" />
+		<result column="level" property="level" />
+		<result column="tid" property="tid" />
+		<result column="is_del" property="is_del" />
+
+		<association property="subType" javaType="com.qsl.pojo.Type">
+			<!-- id：关联查询用户的唯 一标识 column：指定唯 一标识用户信息的列 javaType：映射到user的哪个属性 -->
+			<id column="tid" property="tid" />
+			<result column="tname" property="tname" />
+		</association>
+		<association property="parType" javaType="com.qsl.pojo.Type">
+			<!-- id：关联查询用户的唯 一标识 column：指定唯 一标识用户信息的列 javaType：映射到user的哪个属性 -->
+			<id column="parent_tid" property="tid" />
+			<result column="parent" property="tname" />
+		</association>
+		<association property="courseInfo" javaType="com.qsl.pojo.CourseInfo">
+			<!-- id：关联查询用户的唯 一标识 column：指定唯 一标识用户信息的列 javaType：映射到user的哪个属性 -->
+			<id column="cid" property="cid" />
+			<result column="tea_id" property="tea_id" />
+			<result column="scope" property="scope" />
+			<result column="method" property="method" />
+			<result column="harvest" property="harvest" />
+			<result column="is_del" property="is_del" />
+		</association>
+	</resultMap>
+
+
+	<select id="selectCourse" parameterType="courseQueryVo" resultMap="courseAndTypeAndInfo">
+		SELECT c.*,ctr.*,
+		t1.*,t2.tid 'parent_tid' ,t2.tname 'parent'
+		FROM type t1 , type t2 ,course c LEFT JOIN cour_tea_rel ctr
+		ON c.cid = ctr.cid
+		<where>
+			c.tid = t1.tid AND t1.parentid = t2.tid
+			<include refid="query_condition"></include>
+		</where>
+		ORDER BY c.stu_num DESC
+	</select>
+
+	<select id="selectCourseById" parameterType="int" resultType="courseCustom">
+		select * from course where cid=#{cid}
+	</select>
+
+	<!-- 延迟加载的resultMap -->
+	<resultMap id="CourseTeacherLazyLoadingResultMap" type="com.qsl.pojo.Course" >
+		<!--对订单信息进行映射配置 -->
+		<id column="cid" property="cid" />
+		<result column="cname" property="cname" />
+		<result column="pic" property="pic" />
+		<result column="chapter_num" property="chapter_num" />
+		<result column="stu_num" property="stu_num" />
+		<result column="cdesc" property="cdesc" />
+		<result column="level" property="level" />
+		<result column="tid" property="tid" />
+		<result column="is_del" property="is_del" />
+
+		<association property="teacher" javaType="com.qsl.pojo.Teacher"
+			select="com.qsl.mapper.TeacherMapper.selectTeacherById" column="tea_id">
+		</association>
+
+	</resultMap>
+
+
+	<select id="selectCourseAndTeacher" resultMap="CourseTeacherLazyLoadingResultMap">
+		select * from
+		course
+	</select>
+
+	<insert id="insertCourse" parameterType="course">
+		insert into course
+		(cname,pic,chapter_num,stu_num,cdesc,level,tid,is_del)
+		values
+		(#{cname},#{pic},#{chapter_num},#{stu_num},#{cdesc},#{level},#{tid},#{is_del})
+	</insert>
+
+	<update id="updateCourse" parameterType="course">
+		update course 
+        <set>
+        <if test="cname!=null and cname!=''">
+           cname=#{cname} ,
+        </if> 
+        <if test="pic!=null and pic!=''">
+           pic=#{pic} , 
+          </if> 
+        <if test="chapter_num!=null and chapter_num!=''">
+           chapter_num=#{chapter_num},
+         </if> 
+        <if test="stu_num!=null and stu_num!=''">
+		   stu_num=#{stu_num},
+		 </if> 
+        <if test="cdesc!=null and cdesc!=''">
+		   cdesc=#{cdesc},
+		  </if> 
+        <if test="level!=null and level!=''">
+		   level=#{level},
+		 </if> 
+        <if test="is_del!=null and is_del!=''">
+		   is_del=#{is_del},
+		  </if> 
+        <if test="tid!=null and tid!=''">
+		   tid=#{tid},
+         </if>
+          
+        </set>
+		 where cid=#{cid}
+	</update>
+
+
+	
+
+
+
+</mapper> 

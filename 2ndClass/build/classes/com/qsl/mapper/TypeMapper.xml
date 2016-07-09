@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qsl.mapper.TypeMapper">
+	<sql id="type_query_condition">
+		<if test="isParent!=null and isParent!=''">
+			and isParent = #{isParent}
+		</if>
+		<if test="tname!=null and tname!=''">
+			and tname like '%${tname}%'
+		</if>
+	</sql>
+
+
+	<select id="selectType" parameterType="type" resultType="type">
+		select * from type
+		<where>
+			<include refid="type_query_condition"></include>
+		</where>
+
+	</select>
+
+
+	<select id="selectById" parameterType="type" resultType="type">
+		select * FROM type where tid=#{tid}
+	</select>
+	
+	<select id="select" parameterType="type" resultType="type">
+		select * FROM type
+		<where>
+			<include refid="type_query_condition" />
+		</where>
+
+	</select>
+	
+	
+
+	<insert id="insertType" parameterType="type">
+		insert into type (tname,isParent,parentid,is_del) values
+		(#{tname},#{isParent},#{parentid},#{is_del})
+	</insert>
+
+	<update id="updateType" parameterType="type">
+		UPDATE type
+		<set>
+			<if test="tname != null and tname != ''">
+				tname = #{tname},
+			</if>
+			<if test="isParent != null and isParent != ''">
+				isParent = #{isParent},
+			</if>
+			<if test="parentid != null and parentid != ''">
+				parentid = #{parentid},
+			</if>
+			<if test="is_del != null and is_del != ''">
+				is_del= #{is_del}
+			</if>
+
+		</set>
+		WHERE tid = #{tid}
+	</update>
+
+
+</mapper> 

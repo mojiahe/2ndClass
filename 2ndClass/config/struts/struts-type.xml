@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+    <package name="MyActions" extends="struts-default" namespace="/">       
+        <action name="typeManagerAction" class="typeManagerAction" >  
+            <result name="getType_success" type="dispatcher">WEB-INF/page/manager/typeList.jsp</result>  
+            <result name="getType_fail" type="dispatcher">WEB-INF/page/manager/typeList.jsp</result>
+            <result name="delType_success" type="redirectAction">typeManagerAction!getTypeByName</result>
+            <result name="delType_fail" type="dispatcher">WEB-INF/page/manager/typeList.jsp</result>
+            <result name="getTypeById_success" type="dispatcher">WEB-INF/page/manager/typeEdit.jsp</result>
+            <result name="editType_success" type="redirectAction">typeManagerAction!getTypeByName</result>
+            <result name="add_success" type="dispatcher">WEB-INF/page/manager/typeAdd.jsp</result>
+            <result name="addtype_success" type="redirectAction">typeManagerAction!getTypeByName</result>
+            <result name="addtype_fail" type="dispatcher">WEB-INF/page/manager/typeAdd.jsp</result>
+ 
+        </action>  
+    </package>  
+  
+</struts>  

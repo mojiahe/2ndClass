@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qsl.mapper.SectionMapper">
+
+  <select id="getAllSection"  resultType="Section">
+      SELECT * from section 
+   </select>
+
+   <select id="getSectionByCid" parameterType="int" resultType="Section">
+      SELECT * from section WHERE cid=#{cid}
+   </select>
+   
+   <select id="getSectionBySid" parameterType="int" resultType="Section">
+      SELECT * from section WHERE sid=#{sid}
+   </select>
+   
+  
+  <insert id="insertSection" parameterType="section">
+       INSERT INTO section 
+       (sname,sdesc,ord,time,url,cid,is_del)
+        VALUES(#{sname},#{sdesc},#{ord},#{time},#{url},#{cid},#{is_del}); 
+  </insert>
+  
+  <update id="updateSection" parameterType="section">
+     update section
+     <set>
+     <if test="sname!=null and sname!='' ">
+        sname=#{sname},
+     </if>
+     <if test="sdesc!=null and sdesc!='' ">
+        sdesc=#{sdesc},
+     </if>
+     
+     <if test="time!=null and time!='' ">
+        time=#{time},
+     </if>
+     <if test="is_del!=null and is_del!='' ">
+        is_del=#{is_del},
+     </if>
+     </set>
+     where sid=#{sid}
+  </update>
+  
+  
+</mapper> 
