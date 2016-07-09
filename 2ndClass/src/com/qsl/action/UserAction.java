@@ -170,7 +170,7 @@ public class UserAction extends BaseAction {
 	public String gotoUserList(){
 		
 		String result = userService.getAllUser(requestMap);
-		
+		System.out.println("ss");
 		return "gotoUserList";
 	}
 }
