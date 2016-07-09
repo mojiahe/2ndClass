@@ -24,9 +24,9 @@
 							<br/>
 							
 							<div class="control row">
-							<form action="${pageContext.request.contextPath }/getCourseByName" method="post">
+							<form action="${pageContext.request.contextPath }/userAction!queryUserByKey" method="post">
 								<div class="col-md-2 " style="line-height: 1.9;">请输入关键字：</div>
-								<div class="col-md-3"><input type="text" name="courseQueryVo.cname" placeholder="用户名/昵称" style="line-height: 1.9;" size="35"/></div>
+								<div class="col-md-3"><input type="text" name="userQueryVo.key" placeholder="用户名/昵称" style="line-height: 1.9;" size="35"/></div>
 								<div class="col-md-1"><button type="submit" class="btn btn-primary btn-sm">查询</button></div>
 							</form>
 								

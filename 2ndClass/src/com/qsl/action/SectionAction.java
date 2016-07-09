@@ -96,7 +96,7 @@ public class SectionAction {
 		sessionMap = act.getSession();
 		requestMap = (Map)act.get("request");
 		
-		String result=sectionServiceImpl.getAllSection(requestMap);
+		String result=sectionServiceImpl.getAllSection(requestMap,section);
 		if(SystemCode.ERROR==result){
 			return "fail";
 		}

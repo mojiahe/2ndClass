@@ -42,11 +42,11 @@
 										<th class="col-md-1">编号</th>
 										<th  class="col-md-1">课程名</th>
 										<th class="col-md-1">章节数</th>
-										<th  class="col-md-2">学习人数</th>
-										<th  class="col-md-2">描述</th>
-										<th  class="col-md-2">等级</th>
-										<th  class="col-md-2">课程类型</th>
-										<th  class="col-md-1">是否已经删除</th>
+										<th  class="col-md-1">学习人数</th>
+										<th  class="col-md-1">等级</th>
+										<th  class="col-md-1">课程类型</th>
+										<th  class="col-md-3">描述</th>
+										<th  class="col-md-2">是否已经删除</th>
 										<th  class="col-md-2">操作</th>
 									</tr>
 								</thead>
@@ -58,21 +58,21 @@
 											<td>${course.cname}</td>
 											<td>${course.chapter_num}</td>
 											<td>${course.stu_num}</td>
-											<td>${course.cdesc}</td>
 											<td>${course.level}</td>
 											<td>${course.subType.tname}</td>
-											<td>${course.is_del}
-											   <c:if test="${course.is_del}==0}">
-											             未删除
+											<td>${course.cdesc}</td>
+											<td>
+											   <c:if test="${course.is_del==0}">
+											             否
 											   </c:if>
-											   <c:if test="${course.is_del}!=0}">
-											             已经删除
+											   <c:if test="${course.is_del!=0}">
+											             是
 											   </c:if>
 											</td>
 											<td>
-												
 												<a class="btn btn-default btn-xs" href="${pageContext.request.contextPath }/removeCourseByCid?cid=${course.cid}&&teaid=${course.teacher.tea_id}" onclick="return window.confirm('确定要删除吗？')">删除</a>
 												<a href="${pageContext.request.contextPath }/saveEditCourse?cid=${course.cid}" class="btn btn-default btn-xs">编辑</a>
+												<a href="${pageContext.request.contextPath }/getAllSection?section.cid=${course.cid}" class="btn btn-default btn-xs">章节管理</a>
 											</td>
 										</tr>
 										</c:forEach>

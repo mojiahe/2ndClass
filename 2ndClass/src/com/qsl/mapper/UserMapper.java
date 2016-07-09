@@ -36,6 +36,8 @@ public interface UserMapper {
 	*
 	 */
 	public void updateUser(UserView user);
+
+	public List<User> selectUserByKey(UserQueryVo userQueryVo);
 	
 		
 }

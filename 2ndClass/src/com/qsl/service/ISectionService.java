@@ -12,10 +12,12 @@ public interface ISectionService {
 	* @Title: getAllSection
 	* @Description: 查找所有章节信息
 	* @param requestMap 用于保存数据回传到页面
+	 * @param section 
+	 * @param section 
 	* @return int    返回的SystemCode
 	*
 	 */
-	public String getAllSection(Map requestMap);
+	public String getAllSection(Map requestMap, Section section);
 	
 	/**
 	 * 

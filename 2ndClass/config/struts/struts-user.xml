@@ -9,7 +9,7 @@
             <result name="personCenter" type="dispatcher">WEB-INF/page/user/personCenter.jsp</result> 
             <result name="exit" type="redirect">/index.jsp</result> 
             
-            
+             <result name="getUserByKey_success" type="dispatcher">WEB-INF/page/manager/userList.jsp</result>
              <result name="update_success" type="dispatcher">WEB-INF/page/user/personCenter.jsp</result> 
              <result name="update_fail_Error_Pwd" type="dispatcher">WEB-INF/page/user/personCenter.jsp</result>
              <result name="update_pwd_success" type="redirectAction">userAction!exit</result> 

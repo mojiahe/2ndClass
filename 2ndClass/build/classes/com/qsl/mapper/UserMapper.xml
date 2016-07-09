@@ -87,4 +87,12 @@
 		WHERE uid = #{uid}
 	</update>
 
+	<select id="selectUserByKey" parameterType="com.qsl.pojo.customer.UserQueryVo" resultType="com.qsl.pojo.User">
+		SELECT * FROM user
+		<where>
+			<if test="key != null and key != ''">
+				username LIKE '%${key}%' OR nickname LIKE '%${key}%'
+			</if>
+		</where>
+	</select>
 </mapper> 

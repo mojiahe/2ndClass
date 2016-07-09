@@ -30,15 +30,20 @@ public class SectionServiceImpl implements ISectionService {
 	
 	
 	@Override
-	public String getAllSection(Map requestMap) {
+	public String getAllSection(Map requestMap,Section section) {
 		
 		List<Section> list=sectionMapper.getAllSection();
 		
 		if(null==list||0==list.size()){
 			return SystemCode.ERROR;
 		}
-		
-		requestMap.put("sectionlist", list);
+		List<Section>sections = new ArrayList<Section>();
+		for (Section sec : list) {
+			if (sec.getCid() == section.getCid()) {
+				sections.add(sec);
+			}
+		}
+		requestMap.put("sectionlist", sections);
 		
 		return SystemCode.SUCCESS;
 		

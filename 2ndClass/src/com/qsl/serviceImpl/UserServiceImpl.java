@@ -70,6 +70,7 @@ public class UserServiceImpl implements IUserService {
 		
 		// 5.验证成功，保存到session
 		session.put("user", user);
+		session.put("role", "user");
 		return SystemCode.SUCCESS;
 	}
 
@@ -170,6 +171,13 @@ public class UserServiceImpl implements IUserService {
 	public String exit(Map session) {
 		// 1.清空session的数据
 		session.clear();
+		return SystemCode.SUCCESS;
+	}
+
+	@Override
+	public String searchUserByKey(Map requestMap,UserQueryVo userQueryVo) {
+		List<User> users = userMapper.selectUserByKey(userQueryVo);
+		requestMap.put("users", users);
 		return SystemCode.SUCCESS;
 	}
 

@@ -10,21 +10,30 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.qsl.pojo.customer.UserQueryVo;
 import com.qsl.pojo.customer.UserView;
 import com.qsl.service.IUserService;
 import com.qsl.status.SystemCode;
 
 public class UserAction extends BaseAction {
 	private UserView user;
-
+	private UserQueryVo userQueryVo;
 	// 提交过来的file的名字
 	private String fileFileName;
 
 	// 提交过来的file的MIME类型
 	private String fileContentType;
-	
+
 	@Autowired
 	private IUserService userService;
+
+	public UserQueryVo getUserQueryVo() {
+		return userQueryVo;
+	}
+
+	public void setUserQueryVo(UserQueryVo userQueryVo) {
+		this.userQueryVo = userQueryVo;
+	}
 
 	public UserView getUser() {
 		return user;
@@ -84,6 +93,7 @@ public class UserAction extends BaseAction {
 		}
 		user = new UserView();
 	}
+
 	/*
 	 * 用户注册
 	 */
@@ -115,24 +125,24 @@ public class UserAction extends BaseAction {
 
 	public String updateInfo() {
 		System.out.println(user);
-		//判断是否进行了文件上传
+		// 判断是否进行了文件上传
 		if (user.getFile() != null) {
 			user.setFileContentType(fileContentType);
 			user.setFileFileName(fileFileName);
 		}
-		
+
 		String result = userService.updateUserInfo(sessionMap, user);
-		//判断是否进行了修改密码
+		// 判断是否进行了修改密码
 		if (result.equals(SystemCode.ERROR_PWD)) {
 			requestMap.put("message", "密码错误");
 			return "update_fail_Error_Pwd";
 		}
-		if(user.getOldPwd() != null && result.equals(SystemCode.SUCCESS)){
+		if (user.getOldPwd() != null && result.equals(SystemCode.SUCCESS)) {
 			return "update_pwd_success";
 		}
 		requestMap.put("message", "操作成功");
 		user = new UserView();
-		
+
 		if (SystemCode.MANAGER_OPERATION_SUCCESS.equals(result)) {
 			return "MANAGER_OPERATION_SUCCESS";
 		}
@@ -145,7 +155,7 @@ public class UserAction extends BaseAction {
 	public String personCenter() {
 		return "personCenter";
 	}
-	
+
 	/*
 	 * 用户注销
 	 */
@@ -167,8 +177,18 @@ public class UserAction extends BaseAction {
 		user = new UserView();
 		return "exit";
 	}
-	public String gotoUserList(){
-		
+
+	/*
+	 * 根据关键字查询用户
+	 */
+	public String queryUserByKey() {
+		userService.searchUserByKey(requestMap,userQueryVo);
+		System.out.println(userQueryVo.getKey());
+		return "getUserByKey_success";
+	}
+
+	public String gotoUserList() {
+
 		String result = userService.getAllUser(requestMap);
 		System.out.println("ss");
 		return "gotoUserList";

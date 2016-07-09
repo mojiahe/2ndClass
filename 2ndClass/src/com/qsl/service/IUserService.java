@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import com.qsl.pojo.User;
+import com.qsl.pojo.customer.UserQueryVo;
 import com.qsl.pojo.customer.UserView;
 
 public interface IUserService {
@@ -75,4 +76,6 @@ public interface IUserService {
 	*
 	 */
 	public String exit(Map session);
+
+	public String searchUserByKey(Map requestMap, UserQueryVo userQueryVo);
 }

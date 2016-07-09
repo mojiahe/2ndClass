@@ -45,7 +45,7 @@
 			<if test="tname != null and tname != ''">
 				tname = #{tname},
 			</if>
-			<if test="isParent != null and isParent != ''">
+			<if test="isParent != null and isParent != 0">
 				isParent = #{isParent},
 			</if>
 			<if test="parentid != null and parentid != ''">
